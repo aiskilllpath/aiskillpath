@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore AI learning bundles - from beginner to advanced. Curated courses, notes, prompts, projects, and mentorship.">
+    <title>Course Bundles - AISkillPath</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Courses Page Specific Styles */
+        .courses-hero {
+            padding: 140px 20px 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(108, 99, 255, 0.15), transparent 60%);
+        }
+
+        .courses-hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .courses-hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .courses-filter {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(108, 99, 255, 0.3);
+            background: transparent;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .all-bundles-section {
+            padding: 40px 0 100px;
+        }
+
+        .all-bundles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .bundle-detail-card {
+            background: var(--dark-2);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bundle-detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.15);
+            border-color: rgba(108, 99, 255, 0.3);
+        }
+
+        .bundle-detail-card.highlight {
+            border: 2px solid var(--primary);
+        }
+
+        .bundle-header {
+            padding: 30px 25px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(108, 99, 255, 0.1), transparent);
+        }
+
+        .bundle-emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .bundle-level {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .level-beginner {
+            background: rgba(0, 212, 170, 0.15);
+            color: var(--secondary);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+        }
+
+        .level-intermediate {
+            background: rgba(108, 99, 255, 0.15);
+            color: var(--primary-light);
+            border: 1px solid rgba(108, 99, 255, 0.3);
+        }
+
+        .level-advanced {
+            background: rgba(224, 64, 251, 0.15);
+            color: #E040FB;
+            border: 1px solid rgba(224, 64, 251, 0.3);
+        }
+
+        .level-all {
+            background: rgba(255, 193, 7, 0.15);
+            color: #FFC107;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .bundle-detail-card h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+
+        .bundle-tagline {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .bundle-body {
+            padding: 0 25px 25px;
+        }
+
+        .bundle-price-section {
+            text-align: center;
+            padding: 15px 0;
+            margin-bottom: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .bundle-price-section .original-price {
+            font-size: 1rem;
+        }
+
+        .bundle-price-section .current-price {
+            font-size: 2.2rem;
+        }
+
+        .bundle-price-section .price-note {
+            display: block;
+            color: var(--secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .bundle-includes h4 {
+            color: var(--white);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .bundle-includes ul {
+            margin-bottom: 20px;
+        }
+
+        .bundle-includes ul li {
+            padding: 6px 0;
+            color: var(--text);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .bundle-includes ul li i {
+            color: var(--secondary);
+            font-size: 0.75rem;
+            margin-top: 5px;
+        }
+
+        .bundle-detail-card .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 12px;
+        }
+
+        .guarantee-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .guarantee-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--dark-2);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+        }
+
+        .guarantee-box h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .guarantee-box p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .comparison-section {
+            padding: 80px 0;
+            background: var(--dark-2);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-table th {
+            background: var(--dark-3);
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .comparison-table td {
+            color: var(--text);
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .comparison-table .check {
+            color: var(--secondary);
+        }
+
+        .comparison-table .cross {
+            color: #FF5252;
+        }
+
+        @media (max-width: 1024px) {
+            .all-bundles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .courses-hero h1 {
+                font-size: 2.2rem;
+            }
+            .all-bundles-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-brain"></i> AISkillPath
+            </a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="free-resources.html">Free Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="courses.html" class="nav-btn">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="courses-hero">
+        <div class="container">
+            <h1>Choose Your <span class="gradient-text">Learning Path</span></h1>
+            <p>From complete beginner to AI professional. Pick the bundle that matches your goals and start learning today.</p>
+        </div>
+    </section>
+
+    <!-- Filter -->
+    <div class="courses-filter">
+        <button class="filter-btn active" onclick="filterBundles('all')">All Bundles</button>
+        <button class="filter-btn" onclick="filterBundles('beginner')">Beginner</button>
+        <button class="filter-btn" onclick="filterBundles('intermediate')">Intermediate</button>
+        <button class="filter-btn" onclick="filterBundles('advanced')">Advanced</button>
+        <button class="filter-btn" onclick="filterBundles('career')">Career</button>
+    </div>
+
+    <!-- All Bundles -->
+    <section class="all-bundles-section">
+        <div class="container">
+            <div class="all-bundles-grid">
+
+                <!-- Bundle 1 -->
+                <div class="bundle-detail-card" data-category="beginner">
+                    <div class="bundle-header">
+                        <div class="bundle-emoji">🚀</div>
+                        <span class="bundle-level level-beginner">Beginner</span>
+                        <h3>AI Starter Pack</h3>
+                        <p class="bundle-tagline">Perfect for complete beginners</p>
+                    </div>
+                    <div class="bundle-body">
+                        <div class="bundle-price-section">
+                            <span class="original-price">\$19</span>
+                            <span class="current-price">\$9</span>
+                            <span class="price-note">🔥 53% OFF — Limited Time</span>
+                        </div>
+                        <div class="bundle-includes">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> 30-day structured AI learning roadmap</li>
+                                <li><i class="fas fa-check"></i> 10 best free courses organized by topic</li>
+                                <li><i class="fas fa-check"></i> Beginner summary notes for each course</li>
+                                <li><i class="fas fa-check"></i> AI tools list with descriptions and links</li>
+                                <li><i class="fas fa-check"></i> 5 beginner-friendly project ideas</li>
+                                <li><i class="fas fa-check"></i> Resource bookmarks organized by category</li>
+                                <li><i class="fas fa-check"></i> Lifetime access and updates</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Get AI Starter Pack
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bundle 2 -->
+                <div class="bundle-detail-card highlight" data-category="intermediate">
+                    <div class="bundle-header">
+                        <div class="bundle-emoji">⚡</div>
+                        <span class="bundle-level level-intermediate">Intermediate</span>
+                        <h3>Prompt Engineering Kit</h3>
+                        <p class="bundle-tagline">Master the art of AI prompting</p>
+                    </div>
+                    <div class="bundle-body">
+                        <div class="bundle-price-section">
+                            <span class="original-price">\$29</span>
+                            <span class="current-price">\$15</span>
+                            <span class="price-note">⭐ Best Seller</span>
+                        </div>
+                        <div class="bundle-includes">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Complete Prompt Engineering roadmap</li>
+                                <li><i class="fas fa-check"></i> 200+ ready-to-use prompt templates</li>
+                                <li><i class="fas fa-check"></i> ChatGPT mastery prompts</li>
+                                <li><i class="fas fa-check"></i> Claude AI prompts collection</li>
+                                <li><i class="fas fa-check"></i> Google Gemini prompts collection</li>
+                                <li><i class="fas fa-check"></i> Midjourney image prompts</li>
+                                <li><i class="fas fa-check"></i> Prompt writing framework guide</li>
+                                <li><i class="fas fa-check"></i> Practice exercises with solutions</li>
+                                <li><i class="fas fa-check"></i> Advanced prompting techniques</li>
+                                <li><i class="fas fa-check"></i> Lifetime access and updates</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Get Prompt Engineering Kit
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bundle 3 -->
+                <div class="bundle-detail-card" data-category="career">
+                    <div class="bundle-header">
+                        <div class="bundle-emoji">🎯</div>
+                        <span class="bundle-level level-advanced">Career Focus</span>
+                        <h3>AI Career Bundle</h3>
+                        <p class="bundle-tagline">Get job-ready with AI skills</p>
+                    </div>
+                    <div class="bundle-body">
+                        <div class="bundle-price-section">
+                            <span class="original-price">\$59</span>
+                            <span class="current-price">\$29</span>
+                            <span class="price-note">💼 Career Accelerator</span>
+                        </div>
+                        <div class="bundle-includes">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Complete beginner to advanced learning path</li>
+                                <li><i class="fas fa-check"></i> AI-optimized resume template</li>
+                                <li><i class="fas fa-check"></i> 50 AI interview questions with answers</li>
+                                <li><i class="fas fa-check"></i> Portfolio project ideas with guides</li>
+                                <li><i class="fas fa-check"></i> LinkedIn profile optimization tips</li>
+                                <li><i class="fas fa-check"></i> Job search strategy document</li>
+                                <li><i class="fas fa-check"></i> AI career roles explained</li>
+                                <li><i class="fas fa-check"></i> Salary guide for AI roles</li>
+                                <li><i class="fas fa-check"></i> Lifetime access and updates</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Get AI Career Bundle
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bundle 4 -->
+                <div class="bundle-detail-card" data-category="beginner">
+                    <div class="bundle-header">
+                        <div class="bundle-emoji">🤖</div>
+                        <span class="bundle-level level-beginner">Beginner</span>
+                        <h3>AI Tools Mastery</h3>
+                        <p class="bundle-tagline">Learn every popular AI tool</p>
+                    </div>
+                    <div class="bundle-body">
+                        <div class="bundle-price-section">
+                            <span class="original-price">\$25</span>
+                            <span class="current-price">\$12</span>
+                            <span class="price-note">🛠️ Practical & Hands-On</span>
+                        </div>
+                        <div class="bundle-includes">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> 50+ AI tools organized by category</li>
+                                <li><i class="fas fa-check"></i> Step-by-step tutorials for each tool</li>
+                                <li><i class="fas fa-check"></i> ChatGPT complete guide</li>
+                                <li><i class="fas fa-check"></i> Claude AI complete guide</li>
+                                <li><i class="fas fa-check"></i> Midjourney / DALL-E guide</li>
+                                <li><i class="fas fa-check"></i> AI writing tools comparison</li>
+                                <li><i class="fas fa-check"></i> AI coding tools guide</li>
+                                <li><i class="fas fa-check"></i> Free vs paid tools comparison</li>
+                                <li><i class="fas fa-check"></i> Lifetime access and updates</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Get AI Tools Mastery
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bundle 5 -->
+                <div class="bundle-detail-card highlight" data-category="advanced">
+                    <div class="bundle-header">
+                        <div class="bundle-emoji">💎</div>
+                        <span class="bundle-level level-all">All Levels</span>
+                        <h3>Complete AI Mastery</h3>
+                        <p class="bundle-tagline">Everything you need in one package</p>
+                    </div>
+                    <div class="bundle-body">
+                        <div class="bundle-price-section">
+                            <span class="original-price">\$99</span>
+                            <span class="current-price">\$49</span>
+                            <span class="price-note">💎 Best Value — Save \$50</span>
+                        </div>
+                        <div class="bundle-includes">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Everything from ALL 4 bundles above</li>
+                                <li><i class="fas fa-check"></i> Advanced Machine Learning notes</li>
+                                <li><i class="fas fa-check"></i> Deep Learning summary guide</li>
+                                <li><i class="fas fa-check"></i> NLP fundamentals notes</li>
+                                <li><i class="fas fa-check"></i> Computer Vision basics guide</li>
+                                <li><i class="fas fa-check"></i> 10 complete project guides</li>
+                                <li><i class="fas fa-check"></i> AI research papers simplified</li>
+                                <li><i class="fas fa-check"></i> Weekly resource updates</li>
+                                <li><i class="fas fa-check"></i> Priority email support</li>
+                                <li><i class="fas fa-check"></i> Lifetime access and all future updates</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Get Complete AI Mastery
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bundle 6 -->
+                <div class="bundle-detail-card" data-category="advanced career">
+                    <div class="bundle-header">
+                        <div class="bundle-emoji">👑</div>
+                        <span class="bundle-level level-advanced">Premium</span>
+                        <h3>Premium + Mentorship</h3>
+                        <p class="bundle-tagline">Personal guidance and support</p>
+                    </div>
+                    <div class="bundle-body">
+                        <div class="bundle-price-section">
+                            <span class="original-price">\$199</span>
+                            <span class="current-price">\$99</span>
+                            <span class="price-note">👑 VIP Experience</span>
+                        </div>
+                        <div class="bundle-includes">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Everything from Complete AI Mastery</li>
+                                <li><i class="fas fa-check"></i> 2 one-on-one Zoom mentorship sessions</li>
+                                <li><i class="fas fa-check"></i> 30-day WhatsApp/Telegram support</li>
+                                <li><i class="fas fa-check"></i> Personalized learning roadmap</li>
+                                <li><i class="fas fa-check"></i> Resume review and feedback</li>
+                                <li><i class="fas fa-check"></i> Portfolio review and guidance</li>
+                                <li><i class="fas fa-check"></i> Career strategy session</li>
+                                <li><i class="fas fa-check"></i> Job referral support</li>
+                                <li><i class="fas fa-check"></i> Lifetime VIP updates</li>
+                                <li><i class="fas fa-check"></i> Certificate of completion</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Get Premium + Mentorship
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Compare All Bundles</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Starter<br>\$9</th>
+                        <th>Prompts<br>\$15</th>
+                        <th>Career<br>\$29</th>
+                        <th>Mastery<br>\$49</th>
+                        <th>Premium<br>\$99</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Learning Roadmap</td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Curated Free Courses</td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Summary Notes</td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>200+ Prompt Templates</td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>AI Tools Database</td>
+                        <td>Basic</td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Project Guides</td>
+                        <td>5</td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Career Resources</td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Resume Template</td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Interview Prep</td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Advanced ML/DL Notes</td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Mentorship Sessions</td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Personal Support</td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td class="cross"><i class="fas fa-times"></i></td>
+                        <td>Email</td>
+                        <td>WhatsApp + Zoom</td>
+                    </tr>
+                    <tr>
+                        <td>Lifetime Updates</td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                        <td class="check"><i class="fas fa-check"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Money Back Guarantee -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="guarantee-box">
+                <div style="font-size: 3rem; margin-bottom: 15px;">🛡️</div>
+                <h2>7-Day Money-Back Guarantee</h2>
+                <p>We're confident you'll love our learning bundles. If you're not completely satisfied within 7 days of purchase, contact us and we'll give you a full refund. No questions asked. Zero risk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><i class="fas fa-brain"></i> AISkillPath</h3>
+                    <p>Your trusted partner for structured AI learning.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="free-resources.html">Free Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Bundles</h4>
+                    <ul>
+                        <li><a href="#">AI Starter Pack</a></li>
+                        <li><a href="#">Prompt Engineering Kit</a></li>
+                        <li><a href="#">AI Career Bundle</a></li>
+                        <li><a href="#">Complete AI Mastery</a></li>
+                        <li><a href="#">Premium Mentorship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hello@aiskillpath.com</li>
+                        <li><i class="fab fa-telegram"></i> @aiskillpath</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AISkillPath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Filter bundles
+        function filterBundles(category) {
+            const cards = document.querySelectorAll('.bundle-detail-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
