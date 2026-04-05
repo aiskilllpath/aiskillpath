@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn AI the smart way with curated courses, roadmaps, notes, and mentorship. Start your AI journey today.">
+    <title>AISkillPath - Learn AI The Smart Way</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-brain"></i> AISkillPath
+            </a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="free-resources.html">Free Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="courses.html" class="nav-btn">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🚀 #1 Curated AI Learning Platform</div>
+            <h1>Learn AI The <span class="gradient-text">Smart Way</span></h1>
+            <p class="hero-subtitle">Stop wasting time searching for AI courses. Get curated learning paths, expert notes, project guides, and mentorship — all in one place.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-target="500">0</span>+
+                    <span class="stat-label">Students</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="50">0</span>+
+                    <span class="stat-label">Courses Curated</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="100">0</span>+
+                    <span class="stat-label">Resources</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="30">0</span>+
+                    <span class="stat-label">Projects</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="courses.html" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Explore Courses
+                </a>
+                <a href="free-resources.html" class="btn btn-secondary">
+                    <i class="fas fa-gift"></i> Free Resources
+                </a>
+            </div>
+            <div class="hero-trust">
+                <span>Trusted by learners from</span>
+                <div class="trust-logos">
+                    <span>🇮🇳 India</span>
+                    <span>🇺🇸 USA</span>
+                    <span>🇬🇧 UK</span>
+                    <span>🇦🇪 UAE</span>
+                    <span>🇨🇦 Canada</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">The Problem We Solve</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😫</div>
+                    <h3>Too Many Courses</h3>
+                    <p>Thousands of AI courses online. You waste hours just deciding where to start.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">😵</div>
+                    <h3>No Clear Roadmap</h3>
+                    <p>Random learning without structure leads to confusion and giving up.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>Expensive Courses</h3>
+                    <p>Premium courses cost \$200-\$500. Most beginners can't afford them.</p>
+                </div>
+                <div class="problem-card solution">
+                    <div class="problem-icon">✅</div>
+                    <h3>Our Solution</h3>
+                    <p>Curated free courses + structured roadmap + notes + projects + support. All affordable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">What You Get</h2>
+            <p class="section-subtitle">Everything you need to go from AI beginner to confident practitioner</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-map-signs"></i></div>
+                    <h3>Curated Roadmap</h3>
+                    <p>Step-by-step learning path from beginner to advanced. No guesswork.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Best Free Courses</h3>
+                    <p>Handpicked courses from MIT, Stanford, Google, Microsoft, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-sticky-note"></i></div>
+                    <h3>Summary Notes</h3>
+                    <p>Concise notes for every topic so you learn faster and retain more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-code"></i></div>
+                    <h3>Project Guides</h3>
+                    <p>Real-world AI projects with step-by-step instructions to build your portfolio.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-keyboard"></i></div>
+                    <h3>Prompt Templates</h3>
+                    <p>200+ ready-to-use prompts for ChatGPT, Claude, Gemini, and Midjourney.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Mentorship</h3>
+                    <p>Personal guidance, doubt clearing, and career support from AI practitioners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Bundles Preview -->
+    <section class="bundles-section">
+        <div class="container">
+            <h2 class="section-title">Popular Learning Bundles</h2>
+            <p class="section-subtitle">Choose your learning path</p>
+            <div class="bundles-grid">
+
+                <div class="bundle-card">
+                    <div class="bundle-badge">Most Popular</div>
+                    <div class="bundle-icon">🚀</div>
+                    <h3>AI Starter Pack</h3>
+                    <div class="bundle-price">
+                        <span class="original-price">\$19</span>
+                        <span class="current-price">\$9</span>
+                    </div>
+                    <ul class="bundle-features">
+                        <li><i class="fas fa-check"></i> 30-day AI learning roadmap</li>
+                        <li><i class="fas fa-check"></i> 10 best free courses organized</li>
+                        <li><i class="fas fa-check"></i> Beginner notes for each topic</li>
+                        <li><i class="fas fa-check"></i> AI tools list with descriptions</li>
+                        <li><i class="fas fa-check"></i> 5 beginner project ideas</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-full">Get Started</a>
+                </div>
+
+                <div class="bundle-card featured">
+                    <div class="bundle-badge">Best Value</div>
+                    <div class="bundle-icon">⚡</div>
+                    <h3>Prompt Engineering Kit</h3>
+                    <div class="bundle-price">
+                        <span class="original-price">\$29</span>
+                        <span class="current-price">\$15</span>
+                    </div>
+                    <ul class="bundle-features">
+                        <li><i class="fas fa-check"></i> Prompt Engineering roadmap</li>
+                        <li><i class="fas fa-check"></i> 200+ ready-to-use prompts</li>
+                        <li><i class="fas fa-check"></i> ChatGPT, Claude, Gemini templates</li>
+                        <li><i class="fas fa-check"></i> Prompt writing framework</li>
+                        <li><i class="fas fa-check"></i> Practice exercises</li>
+                        <li><i class="fas fa-check"></i> Advanced techniques guide</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-full">Get Started</a>
+                </div>
+
+                <div class="bundle-card">
+                    <div class="bundle-badge">Complete</div>
+                    <div class="bundle-icon">🎯</div>
+                    <h3>AI Career Bundle</h3>
+                    <div class="bundle-price">
+                        <span class="original-price">\$59</span>
+                        <span class="current-price">\$29</span>
+                    </div>
+                    <ul class="bundle-features">
+                        <li><i class="fas fa-check"></i> Complete beginner to advanced path</li>
+                        <li><i class="fas fa-check"></i> Resume template for AI roles</li>
+                        <li><i class="fas fa-check"></i> 50 AI interview questions</li>
+                        <li><i class="fas fa-check"></i> Portfolio project ideas</li>
+                        <li><i class="fas fa-check"></i> LinkedIn optimization tips</li>
+                        <li><i class="fas fa-check"></i> Job search strategy</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-full">Get Started</a>
+                </div>
+
+            </div>
+            <div class="bundles-cta">
+                <a href="courses.html" class="btn btn-secondary">View All Bundles →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Students Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"I was completely lost trying to learn AI. AISkillPath gave me a clear roadmap and now I'm building real projects. Worth every penny!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <strong>Arjun K.</strong>
+                            <span>Computer Science Student</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The prompt engineering kit alone saved me hours of work. The templates are practical and ready to use. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <strong>Sarah M.</strong>
+                            <span>Content Creator</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Best investment for my AI learning journey. The structured approach and notes made complex topics so much easier to understand."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div>
+                            <strong>Rahul P.</strong>
+                            <span>Software Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Resource CTA -->
+    <section class="free-cta-section">
+        <div class="container">
+            <div class="free-cta-content">
+                <h2>Get Your Free AI Starter Kit</h2>
+                <p>Download our free 7-day AI roadmap, top 10 AI tools list, and 20 prompt templates. No payment required.</p>
+                <form class="email-form" id="emailForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download Free
+                    </button>
+                </form>
+                <span class="form-note">Join 500+ learners. No spam. Unsubscribe anytime.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Are these your own courses?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We curate the best free courses from top universities and platforms like MIT, Stanford, Google, and Coursera. We add our own structured roadmap, summary notes, project guides, prompt templates, and mentorship support. You get the best free content organized with premium added value.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What am I paying for if courses are free?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You pay for the curation, organization, roadmap, summary notes, cheat sheets, project guides, prompt templates, career resources, and mentorship support. We save you 100+ hours of searching and give you a clear structured learning path.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Is there a refund policy?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! If you are not satisfied within 7 days of purchase, contact us for a full refund. No questions asked.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do I need any prior knowledge?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No! Our AI Starter Pack is designed for complete beginners. We start from the basics and guide you step by step.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do I get lifetime access?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Once you purchase a bundle, you get lifetime access to all materials and future updates for that bundle.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Can I get mentorship support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our Premium bundle includes personal mentorship via Zoom, WhatsApp/Telegram support, personalized roadmap, and career guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><i class="fas fa-brain"></i> AISkillPath</h3>
+                    <p>Your trusted partner for structured AI learning. We curate the best free resources and add premium value to accelerate your AI journey.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="free-resources.html">Free Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Popular Bundles</h4>
+                    <ul>
+                        <li><a href="#">AI Starter Pack</a></li>
+                        <li><a href="#">Prompt Engineering Kit</a></li>
+                        <li><a href="#">AI Career Bundle</a></li>
+                        <li><a href="#">Complete AI Mastery</a></li>
+                        <li><a href="#">Premium Mentorship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hello@aiskillpath.com</li>
+                        <li><i class="fab fa-telegram"></i> @aiskillpath</li>
+                        <li><i class="fab fa-instagram"></i> @aiskillpath</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AISkillPath. All rights reserved. | Curated learning resources. All original course rights belong to respective creators.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
